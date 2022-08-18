@@ -14383,32 +14383,40 @@ var init = function init(el) {
       localStorage.setItem("n", n);
     }
   };
-  new _vue.default({
-    el: el,
-    data: {
-      n: m.get()
+
+  _vue.default.createApp({
+    data: function data() {
+      return {
+        n: m.get()
+      };
     },
-    methods: {
-      add: function add() {
-        this.n += 1;
-      },
-      minus: function minus() {
-        this.n -= 1;
-      },
-      mul: function mul() {
-        this.n *= 2;
-      },
-      div: function div() {
-        this.n /= 2;
-      }
+    methods: function methods() {
+      return {
+        add: function add() {
+          this.n += 1;
+        },
+        minus: function minus() {
+          this.n -= 1;
+        },
+        mul: function mul() {
+          this.n *= 2;
+        },
+        div: function div() {
+          this.n /= 2;
+        }
+      };
     },
-    watch: {
-      n: function n() {
-        m.set(this.n);
-      }
+    watch: function watch() {
+      return {
+        n: function n() {
+          m.set(this.n);
+        }
+      };
     },
-    template: "\n      <section>\n        <div class=\"output\">\n          <span id=\"number\">{{n}}</span>\n        </div>\n        <div class=\"actions\">\n          <button @click=\"add\">+1</button>\n          <button @click=\"minus\">-1</button>\n          <button @click=\"mul\">*2</button>\n          <button @click=\"div\">\xF72</button>\n        </div>\n      </section>\n    "
-  });
+    template: function template() {
+      return "\n      <section>\n        <div class=\"output\">\n          <span id=\"number\">{{n}}</span>\n        </div>\n        <div class=\"actions\">\n          <button @click=\"add\">+1</button>\n          <button @click=\"minus\">-1</button>\n          <button @click=\"mul\">*2</button>\n          <button @click=\"div\">\xF72</button>\n        </div>\n      </section>\n    ";
+    }
+  }).mount(el);
 };
 
 var _default = init;
@@ -14433,13 +14441,16 @@ var _vue = _interopRequireDefault(require("vue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var init = function init(el) {
-  new _vue.default({
-    el: el,
-    data: {
-      index: 0
+  _vue.default.createApp({
+    data: function data() {
+      return {
+        index: 0
+      };
     },
-    template: "\n      <section id=\"app2\">\n        <ol class=\"tab-bar\">\n          <li :class=\"index === 0 ? 'selected' : ''\"\n            @click=\"index=0\"><span>1111</span></li>\n          <li :class=\"index === 1 ? 'selected' : ''\"\n            @click=\"index=1\"><span>2222</span></li>\n        </ol>\n        <ol class=\"tab-content\">\n          <li :class=\"index === 0 ? 'active': ''\" >\u5185\u5BB91</li>\n          <li :class=\"index === 1? 'active': ''\" >\u5185\u5BB92</li>\n        </ol>\n      </section>\n    "
-  });
+    template: function template() {
+      return "\n    <section id=\"app2\">\n        <ol class=\"tab-bar\">\n          <li :class=\"index === 0 ? 'selected' : ''\"\n            @click=\"index=0\"><span>1111</span></li>\n          <li :class=\"index === 1 ? 'selected' : ''\"\n            @click=\"index=1\"><span>2222</span></li>\n        </ol>\n        <ol class=\"tab-content\">\n          <li :class=\"index === 0 ? 'active': ''\" >\u5185\u5BB91</li>\n          <li :class=\"index === 1? 'active': ''\" >\u5185\u5BB92</li>\n        </ol>\n      </section>\n    ";
+    }
+  }).mount(el);
 };
 
 var _default = init;
@@ -25638,7 +25649,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49707" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52247" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

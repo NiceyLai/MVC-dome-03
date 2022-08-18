@@ -2,13 +2,13 @@ import './app2.css'
 import Vue from 'vue'
 
 const init = (el) => {
-  new Vue({
-    el: el,
-    data: {
-      index: 0
-    },
-    template: `
-      <section id="app2">
+Vue.createApp({
+  data() {
+    return { index: 0 };
+  },
+  template() {
+    return `
+    <section id="app2">
         <ol class="tab-bar">
           <li :class="index === 0 ? 'selected' : ''"
             @click="index=0"><span>1111</span></li>
@@ -20,8 +20,9 @@ const init = (el) => {
           <li :class="index === 1? 'active': ''" >内容2</li>
         </ol>
       </section>
-    `
-  })
+    `;
+  },
+}).mount(el);
 }
 
 export default init

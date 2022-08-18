@@ -10,29 +10,35 @@ const init = (el) => {
       localStorage.setItem("n", n);
     },
   };
-  new Vue({
-    el: el,
-    data: { n: m.get() },
-    methods: {
-      add() {
-        this.n += 1;
-      },
-      minus() {
-        this.n -= 1;
-      },
-      mul() {
-        this.n *= 2;
-      },
-      div() {
-        this.n /= 2;
-      },
+  Vue.createApp({
+    data() {
+      return { n: m.get() };
     },
-    watch: {
-      n: function () {
-        m.set(this.n);
-      },
+    methods() {
+      return {
+        add() {
+          this.n += 1;
+        },
+        minus() {
+          this.n -= 1;
+        },
+        mul() {
+          this.n *= 2;
+        },
+        div() {
+          this.n /= 2;
+        },
+      };
     },
-    template: `
+    watch() {
+      return {
+        n: function () {
+          m.set(this.n);
+        },
+      };
+    },
+    template() {
+      return `
       <section>
         <div class="output">
           <span id="number">{{n}}</span>
@@ -44,8 +50,9 @@ const init = (el) => {
           <button @click="div">÷2</button>
         </div>
       </section>
-    `,
-  });
+    `;
+    },
+  }).mount(el);
 };
 
 export default init;
